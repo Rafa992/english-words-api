@@ -7,7 +7,7 @@ async function bootstrap() {
   app.setGlobalPrefix('api'); 
   app.use(cookieParser()) 
   app.enableCors({ 
-    origin: ['http://localhost:3000', 'https://order-management-indol.vercel.app'],
+    origin: ['http://localhost:3000', 'https://english-words-pk9h.vercel.app'],
     credentials: true, 
     exposedHeaders: 'Set-Cookie' 
   })
