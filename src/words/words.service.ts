@@ -9,29 +9,9 @@ export class WordsService {
 
 	async createWords() {
 		try {
-			const wordsData = words
-
-			// const createdWords = await Promise.all(
-			// 	wordsData.map(async item => {
-			// 		return this.prisma.words.create({
-			// 			data: {
-			// 				order: item.order,
-			// 				en: item.en,
-			// 				transcription: item.transcription,
-			// 				ru: item.ru,
-			// 				ruFull: item.ruFull,
-			// 				learned: item.learned,
-			// 				unlearned: item.unlearned,
-			// 				repetitions: item.repetitions
-			// 			}
-			// 		})
-			// 	})
-			// )
-
 			const createdWords = await this.prisma.words.createMany({
 				data: words
 			})
-
 			return createdWords
 		} catch (error) {
 			throw new Error('Error while creating static words: ' + error.message)
