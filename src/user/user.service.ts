@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { hash } from 'argon2';
 import { RegisterDto } from 'src/auth/dto/auth.dto';
-import { words } from 'src/data/words';
 import { PrismaService } from 'src/prisma.service';
 import { UpdateUserDto } from './dto/user.dto';
 
@@ -40,7 +39,6 @@ export class UserService {
         password: await hash(dto.password),
         laterality: dto.laterality,
         version: dto.version,
-        words
        }
        return this.prisma.user.create({
         data: user,

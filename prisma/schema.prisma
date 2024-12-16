@@ -8,7 +8,7 @@ datasource db {
 }
 
 model User {
-  id    String @id @default(cuid()) @map("_id") @db.ObjectId
+  id    String @id @default(cuid()) @map("_id")
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
   email String @unique
@@ -16,20 +16,8 @@ model User {
   name String
   laterality String
   version String
-  words Json 
   @@map("user")
 }
-// model User {
-//   id    String @id @default(cuid()) @map("_id")
-//   createdAt DateTime @default(now()) @map("created_at")
-//   updatedAt DateTime @updatedAt @map("updated_at")
-//   email String @unique
-//   password String
-//   name String
-//   laterality String
-//   version String
-//   @@map("user")
-// }
 
 model Words {
   id String  @id @default(cuid()) @map("_id")
