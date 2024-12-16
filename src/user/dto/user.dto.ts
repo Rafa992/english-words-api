@@ -22,8 +22,6 @@ export class UserDto  {
 
     @IsString()
     version: string
-
-    words: []
 }
 
 export class UpdateUserDto extends  UserDto {
