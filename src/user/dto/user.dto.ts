@@ -22,6 +22,9 @@ export class UserDto  {
 
     @IsString()
     version: string
+
+    @IsString()
+    currentRange: string
 }
 
 export class UpdateUserDto extends  UserDto {

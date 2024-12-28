@@ -16,6 +16,7 @@ model User {
   name String
   laterality String
   version String
+  currentRange String  @map("current_range")
   @@map("user")
 }
 

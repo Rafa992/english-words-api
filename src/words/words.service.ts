@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common'
 import { words } from 'src/data/words'
 import { PrismaService } from 'src/prisma.service'
-import { EditWordDto } from './dto/staticWords.dto'
+import { EditWordDto, WordDto } from './dto/staticWords.dto'
 
 @Injectable()
 export class WordsService {
@@ -9,8 +9,18 @@ export class WordsService {
 
 	async createWords() {
 		try {
+			function shuffle(arr: WordDto[]) { // функция перемешивания
+				for (let i = arr.length - 1; i > 0; i--) {
+				  const j = Math.floor(Math.random() * (i + 1));
+				  [arr[i], arr[j]] = [arr[j], arr[i]];
+				}
+				return arr;
+			}
+			  
+			const shuffledArray = shuffle(words);
+
 			const createdWords = await this.prisma.words.createMany({
-				data: words
+				data: shuffledArray
 			})
 			return createdWords
 		} catch (error) {

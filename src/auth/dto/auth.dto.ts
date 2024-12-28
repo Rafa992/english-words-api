@@ -9,13 +9,16 @@ export class RegisterDto {
     password: string
 
     @IsString()
-    name?: string
+    name: string
 
     @IsString()
     laterality: string
 
     @IsString()
     version: string
+
+    @IsString()
+    currentRange: string
 }
 
 export class LoginDto { 
