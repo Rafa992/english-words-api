@@ -38,8 +38,8 @@ export class UserService {
         name: dto.name,
         password: await hash(dto.password),
         laterality: dto.laterality,
-        currentRange: dto.currentRange,
         version: dto.version,
+        currentRange: dto.currentRange,
        }
        return this.prisma.user.create({
         data: user,
