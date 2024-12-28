@@ -28,6 +28,7 @@ export class AuthService {
 
         const {password, ...user} = await this.userService.create(dto)
         const tokens = this.issueTokens(user.id)
+
         return {
             user,
             ...tokens,
