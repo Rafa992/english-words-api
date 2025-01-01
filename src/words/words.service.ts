@@ -67,4 +67,13 @@ export class WordsService {
 		}
 	}
 
+	async restartWord(){
+		try {
+			await this.prisma.words.deleteMany();
+			const newWords = await this.createWords();
+			return newWords
+		} catch (error) {
+			throw new Error('error while delete words: ' + error.message)
+		}
+	}
 }

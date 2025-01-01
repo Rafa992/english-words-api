@@ -29,4 +29,10 @@ export class WordsController {
   async editWord(@Body() wordData: EditWordDto) {
     return await this.wordsService.editWord(wordData);
   }
+
+  @Auth()
+  @Delete('delete-words')
+  async restartWord() {
+    return await this.wordsService.restartWord();
+  }
 }
